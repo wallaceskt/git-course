@@ -32,6 +32,8 @@
 			<article>
 
 				<h1>Git</h1>
+				<p>Todos os comandos básicos que você precisa para realizar a maioria das atividades que eventualmente você fará no Git. Ao final desse capítulo você deverá ser capaz de configurar e inicializar um repositório, começar e parar o monitoramento de arquivos, além de selecionar e consolidar (fazer commit) alterações. Também vamos mostrar a você como configurar o Git para ignorar certos tipos de arquivos e padrões de arquivos, como desfazer enganos de forma rápida e fácil, como pesquisar o histórico do seu projeto e visualizar alterações entre commits e como enviar e obter arquivos a partir de repositórios remotos.</p>
+
 				<h2>Ciclo de vida do estado dos arquivos</h2>
 				<dl>
 					<dt>untracked (não marcado)</dt>
@@ -44,6 +46,92 @@
 					<dd>Arquivo está na area onde vai ser criada a versão. Depois de ser feito o commit (confirmado) ele volta a ser unmodified.</dd>
 				</dl>
 
+				<h2>Comandos</h2>
+				<h3>Iniciando</h3>
+				<dl>
+					<dt>git init</dt>
+					<dd>Inicializa um repositório vazio em um diretório existente.</dd>
+					<dt>git status</dt>
+					<dd>Verifica o estado dos seus arquivos.</dd>
+					<dt></dt>
+					<dd></dd>
+				</dl>
+
+				<h3>Adicionando arquivos (git add)</h3>
+				<dl>
+					<dt>git add <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Diz explicitamente ao Git para monitorar um arquivo. Retira o arquivo do working directory (diretório de trabalho) e manda para staging area (área intermediária). Um commit só pode ser feito caso o arquivos criado/alterado esteja adicionado na staging area.</dd>
+					<dt>git add -A (ou --all):</dt>
+					<dd>-A faz o Git adicionar todos os arquivos.</dd>
+					<dt>git add .:</dt>
+					<dd>também faz o Git adicionar todos os arquivos.</dd>
+					<dt>git add *.txt:</dt>
+					<dd>*.txt faz o git adicionar todos os arquivos de texto com extensão .txt. Pode ser usada qualquer extensão. Ex: .doc, .php, etc.</dd>
+					<dt>git rm <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Para remover um arquivo do Git, é preciso removê-lo da staging area e, depois, fazer o commit. O comando git rm também remove o arquivo do working directory.</dd>
+					<dt>git mv <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Altera o nome de um arquivo do repositório.</dd>
+					<dt>git checkout <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Desfaz as modificações no arquivo que ainda não está em ambiente de staging.</dd>
+					<dt>git reset HEAD <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Remove o arquivo alterado do espaço de staging para permitir o uso do comando git checkout para desfazer as modificações feitas no arquivo.</dd>
+				</dl>
+
+				<h3>Confirmando arquivos (git commit)</h3>
+				<dl>
+					<dt>git commit -m <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Envia um arquivo específico ao repositório. vale lembrar que os commits são todos locais.</dd>
+					<dt>git commit -a -m:</dt>
+					<dd>Envia o(s) arquivo(s) ao repositório sem precisar usar previamente o comando git add para adicionar à stage area, pois o -a já faz esse papel.</dd>
+					<dt>git commit --amend -m:</dt>
+					<dd>Edita um commit já feito. Não cria um novo commit, mas adiciona as alterações. Contudo, o hash (chave) muda.</dd>
+					<dt>git revert <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Remove um commit específico da lista de commits.</dd>
+				</dl>
+
+				<h3>Log</h3>
+				<dl>
+					<dt>git log:</dt>
+					<dd>Serve para analisar todos os commits realizados no repositório. Para sair basta pressionar a tecla q. Exibe: mensagem, hash do commit, autor e data.</dd>
+					<dt>git log -p:</dt>
+					<dd>Exibe mais detalhes dos commits realizados no repositório. Para sair basta pressionar a tecla q. Exibe: informações do diff (o que foi feito em cada arquivo que foi alterado), mensagem, hash do commit, autor e data.</dd>
+					<dt>git log -p -n:</dt>
+					<dd>-n é o número de commits desejável. Exemplo: git log -p -1.</dd>
+					<dt>git log -pretty=oneline <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Mostra apenas o hash do commit e a mensagem.</dd>
+					<dt>git log --online --decorate:</dt>
+					<dd>Condensa cada commit em uma única linha. O sinalizador --decorate faz o git log exibir todas as referências (por exemplo, branches (ramificações), tags, etc.) que apontam para cada commit.</dd>
+					<dt>git log --online --decorate --all --graph:</dt>
+					<dd>Condensa cada commit e exibe em forma de gráfico.</dd>
+					<dt>git log --online:</dt>
+					<dd>Breve</dd>
+					<dt>git log --decorate:</dt>
+					<dd>Breve</dd>
+					<dt>git log --graph:</dt>
+					<dd>Breve</dd>
+					<dt>git log --author="<em>&lt;nome&gt;</em>":</dt>
+					<dd>Breve</dd>
+					<dt>git shortlog:</dt>
+					<dd>Breve</dd>
+					<dt>git shortlog -sn:</dt>
+					<dd>Breve</dd>
+					<dt>git show <em>&lt;hash do commit&gt;</em>:</dt>
+					<dd>Breve</dd>
+				</dl>
+
+				<h3>Comparando arquivos (git diff)</h3>
+				<dl>
+					<dt>git diff:</dt>
+					<dd>Exibe as diferenças num determinado arquivo que está no working directory.</dd>
+					<dt>git diff --staged:</dt>
+					<dd>Exibe as diferenças num determinado arquivo que está na staging area.</dd>
+					<dt>git diff --name-only:</dt>
+					<dd>Diz somente o nome do arquivo que foi modificado.</dd>
+					<dt></dt>
+					<dd></dd>
+					<dt></dt>
+					<dd></dd>
+				</dl>
 
 			</article>
 
