@@ -1,1 +1,183 @@
-Teste
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>GIT e GITHUB</title>
+
+	</head>
+
+	<body>
+
+		<header>
+			
+			<h1>Git Course</h1>
+
+		</header>
+
+		<!--<nav>
+
+			<ul>
+				<li><a href="">Item 1</a></li>
+				<li><a href="">Item 2</a></li>
+			</ul>
+
+		</nav>-->
+
+		<section>
+
+			<article>
+
+				<h1>Git</h1>
+				<p>Todos os comandos básicos que você precisa para realizar a maioria das atividades que eventualmente você fará no Git. Ao final desse capítulo você deverá ser capaz de configurar e inicializar um repositório, começar e parar o monitoramento de arquivos, além de selecionar e consolidar (fazer commit) alterações. Também vamos mostrar a você como configurar o Git para ignorar certos tipos de arquivos e padrões de arquivos, como desfazer enganos de forma rápida e fácil, como pesquisar o histórico do seu projeto e visualizar alterações entre commits e como enviar e obter arquivos a partir de repositórios remotos.</p>
+
+				<h2>Ciclo de vida do estado dos arquivos</h2>
+				<dl>
+					<dt>untracked (não marcado)</dt>
+					<dd>É o momento em que o arquivo acabou de ser adicionado no repositório, mas ainda não foi visto pelo Git.</dd>
+					<dt>unmodified</dt>
+					<dd>O arquivo foi adicionado ao Git, mas não foi modificado.</dd>
+					<dt>modified</dt>
+					<dd>O arquivo foi modificado.</dd>
+					<dt>staged</dt>
+					<dd>Arquivo está na area onde vai ser criada a versão. Depois de ser feito o commit (confirmado) ele volta a ser unmodified.</dd>
+				</dl>
+
+				<h2>Comandos</h2>
+				<h3>Iniciando</h3>
+				<dl>
+					<dt>git init</dt>
+					<dd>Inicializa um repositório vazio em um diretório existente.</dd>
+					<dt>git status</dt>
+					<dd>Verifica o estado dos seus arquivos.</dd>
+				</dl>
+
+				<h3>Adicionando arquivos (git add)</h3>
+				<dl>
+					<dt>git add <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Diz explicitamente ao Git para monitorar um arquivo. Retira o arquivo do working directory (diretório de trabalho) e manda para staging area (área intermediária). Um commit só pode ser feito caso o arquivos criado/alterado esteja adicionado na staging area.</dd>
+					<dt>git add -A (ou --all):</dt>
+					<dd>-A faz o Git adicionar todos os arquivos.</dd>
+					<dt>git add .:</dt>
+					<dd>também faz o Git adicionar todos os arquivos.</dd>
+					<dt>git add *.txt:</dt>
+					<dd>*.txt faz o git adicionar todos os arquivos de texto com extensão .txt. Pode ser usada qualquer extensão. Ex: .doc, .php, etc.</dd>
+					<dt>git rm <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Para remover um arquivo do Git, é preciso removê-lo da staging area e, depois, fazer o commit. O comando git rm também remove o arquivo do working directory.</dd>
+					<dt>git mv <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Altera o nome de um arquivo do repositório.</dd>
+					<dt>git checkout <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Desfaz as modificações no arquivo que ainda não está em ambiente de staging.</dd>
+					<dt>git reset HEAD <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Remove o arquivo alterado do espaço de staging para permitir o uso do comando git checkout para desfazer as modificações feitas no arquivo.</dd>
+				</dl>
+
+				<h3>Confirmando arquivos (git commit)</h3>
+				<dl>
+					<dt>git commit -m <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Envia um arquivo específico ao repositório. vale lembrar que os commits são todos locais.</dd>
+					<dt>git commit -a -m / git commit -am:</dt>
+					<dd>Envia o(s) arquivo(s) ao repositório sem precisar usar previamente o comando git add para adicionar à stage area, pois o -a já faz esse papel.</dd>
+					<dt>git commit --amend -m:</dt>
+					<dd>Edita um commit já feito. Não cria um novo commit, mas adiciona as alterações. Contudo, o hash (chave) muda.</dd>
+					<dt>git revert <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Remove um commit específico da lista de commits.</dd>
+				</dl>
+
+				<h3>Log</h3>
+				<dl>
+					<dt>git log:</dt>
+					<dd>Serve para analisar todos os commits realizados no repositório. Para sair basta pressionar a tecla q. Exibe: mensagem, hash do commit, autor e data.</dd>
+					<dt>git log -p:</dt>
+					<dd>Exibe mais detalhes dos commits realizados no repositório. Para sair basta pressionar a tecla q. Exibe: informações do diff (o que foi feito em cada arquivo que foi alterado), mensagem, hash do commit, autor e data.</dd>
+					<dt>git log -p -n:</dt>
+					<dd>-n é o número de commits desejável. Exemplo: git log -p -1.</dd>
+					<dt>git log -pretty=oneline <em>&lt;nome do arquivo&gt;</em>:</dt>
+					<dd>Mostra apenas o hash do commit e a mensagem.</dd>
+					<dt>git log --online --decorate:</dt>
+					<dd>Condensa cada commit em uma única linha. O sinalizador --decorate faz o git log exibir todas as referências (por exemplo, branches (ramificações), tags, etc.) que apontam para cada commit.</dd>
+					<dt>git log --online --decorate --all --graph:</dt>
+					<dd>Condensa cada commit e exibe em forma de gráfico.</dd>
+					<dt>git log --online:</dt>
+					<dd>Breve</dd>
+					<dt>git log --decorate:</dt>
+					<dd>Breve</dd>
+					<dt>git log --graph:</dt>
+					<dd>Breve</dd>
+					<dt>git log --author="<em>&lt;nome&gt;</em>":</dt>
+					<dd>Breve</dd>
+					<dt>git shortlog:</dt>
+					<dd>Breve</dd>
+					<dt>git shortlog -s -n / git shortlog -sn:</dt>
+					<dd>Breve</dd>
+					<dt>git show <em>&lt;hash do commit&gt;</em>:</dt>
+					<dd>Breve</dd>
+				</dl>
+
+				<h3>Comparando arquivos (git diff)</h3>
+				<dl>
+					<dt>git diff:</dt>
+					<dd>Exibe as diferenças num determinado arquivo que está no working directory.</dd>
+					<dt>git diff --staged:</dt>
+					<dd>Exibe as diferenças num determinado arquivo que está na staging area.</dd>
+					<dt>git diff --name-only:</dt>
+					<dd>Diz somente o nome do arquivo que foi modificado.</dd>
+				</dl>
+
+				<h3>Reset: soft, mixed e hard</h3>
+				<dl>
+					<dt>git reset --soft <em>&lt;commit&gt;</em>:</dt>
+					<dd>Basicamente só altera a referência de master (move apenas o ponteiro HEAD para algum outro commit), sem alterar a área de stage ou o diretório de working. Bom para fazer mudanças num commit existente.</dd>
+					<dt>git reset --mixed <em>&lt;commit&gt;</em>:</dt>
+					<dd>É o tipo default. Essa opção, além de mover o ponteiro HEAD, faz com que a área de stage contenha o mesmo snapshot do commit para o qual o ponteiro HEAD foi movido, porém não afeta o working directory.</dd>
+					<dt>git reset --hard <em>&lt;commit&gt;</em>:</dt>
+					<dd>É o mais perigoso tipo de reset. Ele não apenas descarta as alterações na área de stage como também reverte todas as alterações no working directory para o estado do commit que foi especificado no comando.</dd>
+				</dl>
+
+				<h3>Repositório remoto</h3>
+				<h4>Conectando via SSH</h4>
+				<p>Usando o protocolo SSH, você pode se conectar e autenticar em servidores e serviços remotos. Com as chaves SSH, você pode se conectar ao GitHub sem fornecer seu nome de usuário ou senha em cada visita.</p>
+				<p>No Terminal digite: ssh-keygen -t rsa -b 4096 -C "<em>&lt;email_do_github&gt;</em>".</p>
+				<P>Isso cria uma nova chave ssh, usando o e-mail fornecido como um rótulo. Deverão ser exibidas duas mensagens: "Generating public/private rsa key pair." e "Enter a file in which to save the key (/Users/you/.ssh/id_rsa): ". Pressione a tecla Enter e insira duas vezes sua senha.</p>
+				<p>Para verificar se as chaves SSH já existem, vá até o diretório SSH pelo comando "ls -al ~/.ssh". Olhe se existe o arquivo id_rsa.pub e digite o comando "cat id_rsa.pub" ou "more id_rsa.pub" para ver a chave SSH.</p>
+				<p>Para copiar a chave SSH use "pbcopy &lt; ~/.ssh/id_rsa.pub", no Terminal.</p>
+				<p>Pronto. Agora, basta ir ao github.com e inserir a chave para se conectar ao repositório remoto.</p>
+				<p>Para testar a conexão com o repositório remoto use "ssh -T git@github.com".</p>
+				<p>No repositório local execute o comando "git remote add origin git@github.com:wallaceskt/git-course.git" e, depois, "git remote" ou "git remote -v".</p>
+				<p>Use "git push -u origin master" para enviar os dados do repositório local ao repositório remoto. Faça isso depois de fazer os commits também.</p>
+
+				<h3>Branch (ramificação)</h3>
+				<p>É um ponteiro móvel que leva a um commit. Tem as vantagens: poder modificar sem alterar o local principal (master), facilmente "desligável", múltiplas pessoas trabalhando, evita conflitos.</p>
+				<dl>
+					<dt>git branch <em>&lt;branch&gt;</em>:</dt>
+					<dd>Cria um branch (ramificação). O uso de tags para controlar versão e/ou criar ambientes diferentes de desenvolvimento de um projeto pode trazer transtornos. O melhor é fazer o uso de branches (ramificações), pois permite trabalhar com varias ramificações diferentes sem que uma interfira na outra.</dd>
+					<dt>git checkout -b <em>&lt;branch&gt;</em>:</dt>
+					<dd>Uma forma simplificada para criar o branch e fazer a transição dos arquivos do branch master para ele.</dd>
+					<dt>git checkout <em>&lt;branch&gt;</em>:</dt>
+					<dd>Faz a transição dos arquivos do branch master para o novo branch criado.</dd>
+					<dt>git branch -d <em>&lt;branch&gt;</em>:</dt>
+					<dd>Deleta o branch.</dd>
+				</dl>
+
+				<p>Pull, ou puxar, é a ação de atualizar uma referência local a partir de uma referência remote, trazendo os objetos necessários para satisfazer as referências atualizadas. O cuidado que se deve ter é porque o git pull faz merge automaticamente.</p>
+				<p>git pull: Faz a operação inversa do push.</p>
+				<p>git pull origin master: Recebe os commits ao repositório remoto, origin.</p>
+				<p>git fetch: Faz o pull pela metade. Ele só traz as atualizações e aplica. Não faz merge.</p>
+				<p>git diff master origin/master: Exibe as diferenças entre master e origin/master.</p>
+				<p>git merge origin/master: Faz a mesclagem dos arquivos com o origin. Fazer apenas se o diff não apresentar nenhum conflito.</p>
+				<p>git clone <em>&lt;endereço de origem&gt;</em> <em>&lt;destino&gt;</em>: Clona um repositório remoto.</p>
+
+			</article>
+
+		</section>
+
+		<footer>
+
+			<p>Udemy</p>
+
+		</footer>
+
+	</body>
+
+</html>
