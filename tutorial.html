@@ -164,6 +164,37 @@
 					<dd>Une branches. O Rebase tem a vantagem de evitar commits extras e cria um histórico linear, porém perde a ordem cronológica. É que o rebase funciona como um fast-foward, ou seja, coloca o commit do branch na frente (mantendo uma linha reta no master).</dd>
 				</dl>
 
+				<h3>Stash</h3>
+				<p>É uma área, onde é possível armazenar código, sem a necessidade de realizar um commit, permitindo mudar de brach ou realizar outras operações de forma organizada.</p>
+				<dl>
+					<dt>git stash save "<em>&lt;flag&gt;</em>":</dt>
+					<dd>Envia o arquivo para o stash retirando o da staging area. Após o comando, o git exibe mensagem como: stash@{0}: On feature4: h.txt.</dd>
+					<dt>git stash apply <em>&lt;stash&gt;</em>:</dt>
+					<dd>Devolve o arquivo para a staging area, mas ainda continua no stash. Ex: git stash apply stash@{0}.</dd>
+					<dt>git stash drop <em>&lt;stash&gt;</em>:</dt>
+					<dd>Apaga o arquivo do stash. Ex: git stash drop stash@{0}.</dd>
+					<dt>git stash pop:</dt>
+					<dd>Devolve o arquivo para a staging area e apaga o arquivo do stash. Ex: git stash pop.</dd>
+					<dt>git stash branch <em>&lt;branch&gt;</em>:</dt>
+					<dd>Cria um novo branch a partir de um stash.</dd>
+				</dl>
+
+				<h3>Tag</h3>
+				<dl>
+					<dt>git tag:</dt>
+					<dd>O Git tem a capacidade de marcar pontos específicos na história como sendo importantes. Normalmente, as pessoas usam essa funcionalidade para marcar pontos de lançamento. Exemplo: git tag -a v1.0 -m "Versão 1.0.".</dd>
+					<dt>git tag -a <em>&lt;tag&gt;</em> -m:</dt>
+					<dd>Cria a tag no momento atual do repositório. Exemplo: git tag -a v1.0 -m "Versão 1.0.".</dd>
+					<dt>git tag -a <em>&lt;tag + hash do commit&gt;</em> -m:</dt>
+					<dd>Cria a tag num momento anterior do repositório. Exemplo: git tag -a v0.0 2b1e9f027d29882acd2b9407eb99a97003c13aef -m "Versão 0.0.".</dd>
+					<dt>git show <em>&lt;tag&gt;</em>:</dt>
+					<dd>Exibe os detalhes da tag. Exemplo: git show v1.0.</dd>
+					<dt>git checkout <em>&lt;tag&gt;</em>:</dt>
+					<dd>Troca o repositório (versão do sistema/projeto) para o status em que a tag foi criada. Exemplo: git checkout v0.0.</p>
+					<dt>git tag -d <em>&lt;tag&gt;</em>:</dt>
+					<dd>Exclui a tag. Exemplo: git tag -d v0.0.</dd>
+				</dl>
+
 			</article>
 
 		</section>
