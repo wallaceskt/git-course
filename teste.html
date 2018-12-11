@@ -164,6 +164,14 @@
 					<dd>Une branches. O Rebase tem a vantagem de evitar commits extras e cria um histórico linear, porém perde a ordem cronológica. É que o rebase funciona como um fast-foward, ou seja, coloca o commit do branch na frente (mantendo uma linha reta no master).</dd>
 				</dl>
 
+				<p>Pull, ou puxar, é a ação de atualizar uma referência local a partir de uma referência remote, trazendo os objetos necessários para satisfazer as referências atualizadas. O cuidado que se deve ter é porque o git pull faz merge automaticamente.</p>
+				<p>git pull: Faz a operação inversa do push.</p>
+				<p>git pull origin master: Recebe os commits ao repositório remoto, origin.</p>
+				<p>git fetch: Faz o pull pela metade. Ele só traz as atualizações e aplica. Não faz merge.</p>
+				<p>git diff master origin/master: Exibe as diferenças entre master e origin/master.</p>
+				<p>git merge origin/master: Faz a mesclagem dos arquivos com o origin. Fazer apenas se o diff não apresentar nenhum conflito.</p>
+				<p>git clone <em>&lt;endereço de origem&gt;</em> <em>&lt;destino&gt;</em>: Clona um repositório remoto.</p>
+
 			</article>
 
 		</section>
