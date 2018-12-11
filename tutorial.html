@@ -158,9 +158,9 @@
 					<dd>Faz a transição dos arquivos do branch master para o novo branch criado.</dd>
 					<dt>git branch -d <em>&lt;branch&gt;</em>:</dt>
 					<dd>Deleta o branch.</dd>
-					<dt>git branch -d <em>&lt;branch&gt;</em>:</dt>
+					<dt>git merge <em>&lt;branch&gt;</em>:</dt>
 					<dd>Une branches. O merge é uma operação não destrutiva, mas precisa de um commit extra que serve apenas para unir os commits feitos em branches diferentes. Não traz nada novo em termos de código e acaba não sendo bem visto.</dd>
-					<dt>git branch -d <em>&lt;branch&gt;</em>:</dt>
+					<dt>git rebase <em>&lt;branch&gt;</em>:</dt>
 					<dd>Une branches. O Rebase tem a vantagem de evitar commits extras e cria um histórico linear, porém perde a ordem cronológica. É que o rebase funciona como um fast-foward, ou seja, coloca o commit do branch na frente (mantendo uma linha reta no master).</dd>
 				</dl>
 
