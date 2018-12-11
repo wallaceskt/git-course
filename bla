@@ -1,0 +1,4 @@
+Bla<dt>git branch -d <em>&lt;branch&gt;</em>:</dt>
+					<dd>Une branches. O merge é uma operação não destrutiva, mas precisa de um commit extra que serve apenas para unir os commits feitos em branches diferentes. Não traz nada novo em termos de código e acaba não sendo bem visto.</dd>
+					<dt>git branch -d <em>&lt;branch&gt;</em>:</dt>
+					<dd>Une branches. O Rebase tem a vantagem de evitar commits extras e cria um histórico linear, poré
